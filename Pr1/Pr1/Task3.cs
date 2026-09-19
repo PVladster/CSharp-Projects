@@ -13,7 +13,7 @@ namespace Pr1
             //int result;
             do
             {
-                
+                Console.WriteLine("Enter number: ");
             } while(!int.TryParse(Console.ReadLine(), out int result));
         }
     }
