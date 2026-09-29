@@ -7,6 +7,7 @@ namespace Smart_spa
         public double Height {get; set;}
         public double Weight {get; set;}
         public int LifeStyle {get; set;}
+        public double Bill{get; set;}
     
     }
 }

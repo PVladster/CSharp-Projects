@@ -1,56 +1,36 @@
-﻿using System.Security.Cryptography;
+﻿using System;
 
 namespace Smart_spa
 {
-    public class Program
+    internal class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-           string name = GetNameFromUser();
-           short age = GetAgeFromUser();
-           double height = GetHeightFromUser();
-           double weight = GetWeightFromUser();
-           int lifeStyle = GetLifeStyleFromUser();
+            Console.Clear();
+            Console.WriteLine("Ласкаво просимо до Smart Spa!");
+            
+            Client currentClient = new Client();
 
-           Client client = new Client();
-           client.Name = name;
-           client.Age = age;
-           client.Height = height;
-           client.Weight = weight;
-           client.LifeStyle = lifeStyle;
-        }
-        public static string GetNameFromUser()
-        {
-           Console.Write("Введіть ваше ім'я: ");
-           return Console.ReadLine() ?? string.Empty;
-        }
-        public static short GetAgeFromUser()
-        {
+            Console.Write("Введіть ваше ім'я: ");
+            currentClient.Name = Console.ReadLine() ?? "Клієнт";
+
             Console.Write("Введіть ваш вік: ");
-            short.TryParse(Console.ReadLine(), out short age);
-            return age;
-        }
-        public static double GetHeightFromUser()
-        {
-            Console.Write("Введіть ваш зріст: ");
-            double.TryParse(Console.ReadLine(), out double height);
-            return height;
-        }
-        public static double GetWeightFromUser()
-        {
-            Console.Write("Введіть вашу вагу: ");
-            double.TryParse(Console.ReadLine(), out double weight);
-            return weight;
-        }
-        public static int GetLifeStyleFromUser()
-        {
-            Console.WriteLine("Вибиріть ваш рівень активності: ");
-            Console.WriteLine("1 - Сидячий спосіб життя(мало руху)");
-            Console.WriteLine("2 - Помірна активність (прогулянки, спортзал 2 рази на тиждень)");
-            Console.WriteLine("3 - Висока активність (професійний спорт)");
-            int.TryParse(Console.ReadLine(), out int lifeStyle);
-            return lifeStyle;
-           }
+            if (short.TryParse(Console.ReadLine(), out short age))
+                currentClient.Age = age;
+
+            Console.Write("Введіть ваш зріст (см): ");
+            if (double.TryParse(Console.ReadLine(), out double height))
+                currentClient.Height = height;
+
+            Console.Write("Введіть вашу вагу (кг): ");
+            if (double.TryParse(Console.ReadLine(), out double weight))
+                currentClient.Weight = weight;
+
+            Console.Write("Введіть ваш спосіб життя 1.(активний),  2.(не туди - не сюди),  3.(пасивний): ");
+            if (int.TryParse(Console.ReadLine(), out int lifestyle))
+                currentClient.LifeStyle = lifestyle;
+                
+            Menu_Controller.ShowMainMenu(currentClient);
         }
     }
-
+}
