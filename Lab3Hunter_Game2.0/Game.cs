@@ -32,9 +32,7 @@ namespace Lab3Hunter_Game2_0
                 {
                     case "1":
                         Console.WriteLine("Полювати");
-
                         string? huntChoice = ChooseHunter();
-
                         if (huntChoice == "1")
                         {
                             hunter1.Hunt();
@@ -51,15 +49,12 @@ namespace Lab3Hunter_Game2_0
 
                     case "2":
                         Console.WriteLine("Купити стріли");
-
                         string? hunterChoice = ChooseHunter();
-
                         if (hunterChoice != "1" && hunterChoice != "2")
                         {
                             Console.WriteLine("Невідомий мисливець");
                             break;
                         }
-
                         Console.WriteLine("Скільки стріл хочете купити?");
                         string? input = Console.ReadLine();
 
@@ -84,12 +79,9 @@ namespace Lab3Hunter_Game2_0
 
                     case "3":
                         Console.WriteLine("Переглянути інформацію");
-
                         hunter1.ShowInfo();
                         hunter1.ShowSpecialAbility();
-
                         Console.WriteLine();
-
                         hunter2.ShowInfo();
                         hunter2.ShowSpecialAbility();
                         break;
